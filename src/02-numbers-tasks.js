@@ -275,9 +275,6 @@ function toNumber(value, def) {
     throw new Error('Not implemented');
   } else {
     const result = parseFloat(value);
-    if (isNaN(parseFloat(value)) == true) {
-      return def;
-    }
     return result;
   }
 }
