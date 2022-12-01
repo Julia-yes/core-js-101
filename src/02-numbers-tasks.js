@@ -40,11 +40,7 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCircleCircumference(radius) {
-  if (typeof radius !== 'number') {
-    throw new Error('Not implemented');
-  } else {
-    return 2 * radius * (Math.PI);
-  }
+  return 2 * radius * (Math.PI);
 }
 
 /**
@@ -63,7 +59,7 @@ function getAverage(value1, value2) {
   if (typeof value1 !== 'number' || typeof value2 !== 'number') {
     throw new Error('Not implemented');
   } else {
-    return (value1 + value2) / 2;
+    return value1 / 2 + value2 / 2;
   }
 }
 
@@ -271,12 +267,12 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  if (typeof def !== 'number') {
-    throw new Error('Not implemented');
-  } else {
-    const result = parseFloat(value);
-    return result;
+  const result = parseFloat(value);
+  const bool = Number.isNaN(result);
+  if (bool) {
+    return def;
   }
+  return result;
 }
 
 module.exports = {
