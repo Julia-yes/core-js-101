@@ -116,12 +116,8 @@ function angleBetweenClockHands(date) {
   let hours = date.getUTCHours();
   if (hours > 12) { hours -= 12; }
   if (hours > 6) { hours -= 6; }
-  console.log(hours);
   let min = date.getUTCMinutes();
   if (min > 30) { min -= 30; }
-  console.log(min);
-  console.log(Math.PI * (Math.abs(hours - min / 5) / 6));
-  console.log(Math.PI / 0.8726646259971648);
   return Math.PI * (Math.abs(hours - min / 5) / 6);
 }
 
