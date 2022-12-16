@@ -264,8 +264,26 @@ function getTail(arr, n) {
  *    +'20,21,22,23,24\n'
  *    +'30,31,32,33,34'
  */
-function toCsvText(/* arr */) {
-  throw new Error('Not implemented');
+function toCsvText(arr) {
+  let result = '';
+  let string = [];
+  let str = '';
+  for (let i = 0; i < arr.length; i += 1) {
+    string = [...arr[i]];
+    for (let j = 0; j < string.length; j += 1) {
+      if (j === string.length - 1) {
+        str += String(string[j]);
+      } else {
+        str += `${String(string[j])},`;
+      }
+    }
+    if (i !== arr.length - 1) {
+      str += '\n';
+    }
+    result += str;
+    str = '';
+  }
+  return result;
 }
 
 /**
