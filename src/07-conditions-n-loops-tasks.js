@@ -332,8 +332,24 @@ function getDigitalRoot(num) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/* str */) {
-  throw new Error('Not implemented');
+function isBracketsBalanced(str) {
+  if (str === '') return true;
+  const right = /\(/gi;
+  const left = /\)/gi;
+  let numLeft = str.match(left);
+  let numRight = str.match(right);
+  if ((!numLeft || !numRight) || numLeft.length !== numRight.length) return false;
+  right.lastIndex = 0;
+  left.lastIndex = 0;
+  const {
+    length,
+  } = str;
+  const firstHalf = str.substr(0, length / 2);
+  const secondHalf = str.substr(length / 2);
+  numLeft = firstHalf.match(right);
+  numRight = secondHalf.match(left);
+  if ((!numLeft || !numRight) || numLeft.length > numRight.length) return false;
+  return true;
 }
 
 

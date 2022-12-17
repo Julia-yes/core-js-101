@@ -33,7 +33,7 @@ function willYouMarryMe(isPositiveAnswer) {
     if (typeof isPositiveAnswer !== 'boolean') {
       reject(new Error('Wrong parameter is passed! Ask her again.'));
     }
-    if (isPositiveAnswer === 'true') {
+    if (isPositiveAnswer) {
       resolve('Hooray!!! She said "Yes"!');
     } else {
       resolve('Oh no, she said "No".');
